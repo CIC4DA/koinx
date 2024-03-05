@@ -1,9 +1,12 @@
 import React from 'react'
+import Navbar from './components/Navbar';
+import './input.css';
+
 
 const App = () => {
   return (
     <div className="App">
-      STARTED
+      <Navbar/>
     </div>
   )
 }
