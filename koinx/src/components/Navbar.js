@@ -4,10 +4,10 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Capabilities", href: "#", current: false },
-  { name: "About", href: "#", current: false },
-  { name: "Contact Us", href: "#", current: false },
-  { name: "Get Quote", href: "#", current: true },
+  { name: "Capabilities", to: "/capabilities", current: false },
+  { name: "About", to: "/about", current: false },
+  { name: "Contact Us", to: "/contact", current: false },
+  { name: "Get Quote", to: "/getquote", current: true },
 ];
 
 function classNames(...classes) {
@@ -49,9 +49,9 @@ export default function Navbar() {
                 <div className="hidden sm:block sm:items-center sm:flex sm:justify-center">
                   <div className="flex align-center">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        href={item.to}
                         className={classNames(
                           item.current
                             ? "bg-[#8D8D8D] text-black mx-3"
@@ -62,7 +62,7 @@ export default function Navbar() {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -90,7 +90,7 @@ export default function Navbar() {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
+                          <Link
                             href="#"
                             className={classNames(
                               active ? "bg-[#8D8D8D]" : "",
@@ -98,12 +98,12 @@ export default function Navbar() {
                             )}
                           >
                             Your Profile
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
+                          <Link
                             href="#"
                             className={classNames(
                               active ? "bg-[#8D8D8D]" : "",
@@ -111,12 +111,12 @@ export default function Navbar() {
                             )}
                           >
                             Settings
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
+                          <Link
                             href="#"
                             className={classNames(
                               active ? "bg-[#8D8D8D]" : "",
@@ -124,7 +124,7 @@ export default function Navbar() {
                             )}
                           >
                             Sign out
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
