@@ -7,7 +7,7 @@ const navigation = [
   { name: "Capabilities", to: "/capabilities", current: false },
   { name: "About", to: "/about", current: false },
   { name: "Contact Us", to: "/contact", current: false },
-  { name: "Get Quote", to: "/getquote", current: true },
+  { name: "Get Quote", to: "/getQuote", current: true },
 ];
 
 function classNames(...classes) {
@@ -51,7 +51,7 @@ export default function Navbar() {
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
-                        href={item.to}
+                        to={item.to}
                         className={classNames(
                           item.current
                             ? "bg-[#8D8D8D] text-black mx-3"
@@ -91,7 +91,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            href="#"
+                            to="/user"
                             className={classNames(
                               active ? "bg-[#8D8D8D]" : "",
                               "block px-4 py-2 text-sm"
@@ -104,7 +104,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            href="#"
+                            to="/settings"
                             className={classNames(
                               active ? "bg-[#8D8D8D]" : "",
                               "block px-4 py-2 text-sm"
@@ -117,7 +117,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            href="#"
+                            to="/signOut"
                             className={classNames(
                               active ? "bg-[#8D8D8D]" : "",
                               "block px-4 py-2 text-sm"
