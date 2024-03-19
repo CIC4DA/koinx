@@ -7,7 +7,7 @@ const navigation = [
   { name: "Capabilities", to: "/capabilities", current: false },
   { name: "About", to: "/about", current: false },
   { name: "Contact Us", to: "/contact", current: false },
-  { name: "Get Quote", to: "/getQuote", current: true },
+  { name: "Get Quote", to: "/getQuote", current: false },
 ];
 
 function classNames(...classes) {
