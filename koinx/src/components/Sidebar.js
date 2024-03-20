@@ -26,7 +26,7 @@ export default function Sidebar() {
                   item.current
                     ? "bg-[#8D8D8D] text-black text-center"
                     : "text-black hover:bg-[#8D8D8D] hover:text-black hover:text-center",
-                  "rounded-full px-8 py-2 text-[18px] text-left mx-3 my-1"
+                  "rounded-full px-8 py-2 text-[18px] text-left mx-3 my-2"
                 )}
                 aria-current={item.current ? "page" : undefined}
               >
