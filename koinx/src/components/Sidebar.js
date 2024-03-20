@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const navigation = [
-    { name: "Get Quote", to: "/getQuote", current: true },
+    { name: "Get Quote", to: "/getQuote", current: false },
     { name: "My Documents", to: "/user/documents", current: false },
     { name: "My Orders", to: "/user/orders", current: false },
     { name: "My Quote", to: "/user/quotes", current: false },
