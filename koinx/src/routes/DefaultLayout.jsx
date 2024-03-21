@@ -7,6 +7,9 @@ import Navbar from "../js/components/Navbar";
 import SmoothScroll from "./extra/SmoothScroll";
 import Error404 from "./extra/Error404";
 import GetQuoteScreen from "../js/screens/GetQuoteScreen";
+import BuyerDashboard from "../js/screens/BuyerDashboard";
+import SignupScreen from "../js/screens/SignupScreen";
+import LoginScreen from "../js/screens/LoginScreen";
 
 
 function classNames(...classes) {
@@ -36,6 +39,9 @@ const DefaultLayout = () => {
           <Route path="/" element={<HomeScreen />} />
           <Route path="/getQuote" element={<GetQuoteScreen />} />
 
+          <Route path="buyer">
+            <Route path="dashboard" element={<BuyerDashboard />} />
+          </Route>
           <Route path="seller">
             {/* <Route path="registration" element={<SellerRegistrationScreen />} />
             <Route path="individual" element={<SellerIndividual />} />
@@ -99,9 +105,7 @@ const DefaultLayout = () => {
             /> */}
           </Route>
 
-
-
-          <Route path="signin">
+          <Route path="login" element={<LoginScreen />}>
             {/* <Route path="username" element={<SignInUsernameScreen />} />
             <Route path="password" element={<SignInPasswordScreen />} />
             <Route path="success" element={<SignInSuccessScreen />} />
@@ -120,7 +124,7 @@ const DefaultLayout = () => {
             /> */}
           </Route>
 
-          <Route path="signup">
+          <Route path="signup" element={<SignupScreen/>}>
             {/* <Route path="" element={<SignUpFormScreen />} />
             <Route path="verify" element={<SignUpPhoneVerification />} /> */}
           </Route>
