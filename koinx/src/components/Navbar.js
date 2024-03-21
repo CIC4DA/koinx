@@ -1,7 +1,9 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import GoogleAuthButton from "./GoogleAuthButton";
+import { googleLogout } from '@react-oauth/google';
 
 const navigation = [
   { name: "Capabilities", to: "/capabilities", current: false },
@@ -15,6 +17,8 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const [user, setUser] = useState(null);
+
   return (
     <Disclosure as="nav" className="bg-white text-[18px]">
       {({ open }) => (
@@ -71,12 +75,16 @@ export default function Navbar() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                  <Menu.Button className="relative flex rounded-full bg-[#D9D9D9] text-sm focus:outline-none hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-black sm:mr-10">
+                  { user ? <Menu.Button className="relative flex rounded-full bg-[#D9D9D9] text-sm focus:outline-none hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-black sm:mr-10">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
-                      <img className="h-10 w-10 rounded-full" src="/user_image.jpg" alt="" />
+                      <img className="h-10 w-10 rounded-full" src={user?.picture} alt="" />
                       <div className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-[#D9D9D9] h-4 w-4 rounded-full text-[8px]"></div>
-                    </Menu.Button>
+                  </Menu.Button> :
+                  <div className="sm:mr-10"> 
+                  <GoogleAuthButton setUser={setUser}/>
+                  </div> 
+                  }                  
                   </div>
                   <Transition
                     as={Fragment}
@@ -117,11 +125,14 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="/signOut"
                             className={classNames(
                               active ? "bg-[#8D8D8D]" : "",
                               "block px-4 py-2 text-sm"
                             )}
+                            onClick={() => {
+                              setUser(null);                              
+                              googleLogout()
+                            }}
                           >
                             Sign out
                           </Link>
