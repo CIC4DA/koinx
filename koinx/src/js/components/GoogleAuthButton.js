@@ -1,6 +1,6 @@
 import React from "react";
 import { GoogleLogin } from "@react-oauth/google";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 const GoogleAuthButton = ({ setUser }) => {
   return (
@@ -11,10 +11,10 @@ const GoogleAuthButton = ({ setUser }) => {
           const decoded = jwtDecode(credentialResponse.credential);
 
           setUser({
-            name : decoded.name,
-            email : decoded.email,
-            picture : decoded.picture
-          })
+            name: decoded.name,
+            email: decoded.email,
+            picture: decoded.picture,
+          });
         }}
         onError={() => {
           console.log("Login Failed");
